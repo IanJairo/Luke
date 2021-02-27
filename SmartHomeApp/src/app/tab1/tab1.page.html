@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  [fullscreen]="true">
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Seja bem-vindo!</ion-card-subtitle>
+      <ion-card-title>{{userName}}</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+
+  <ion-card [routerLink]="'/casa'">
+    <img src="./../../assets/img/ifal.PNG" />
+    <ion-card-header>
+      <ion-card-subtitle>Veja sua casa</ion-card-subtitle>
+      <ion-card-title>IFAL</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      O Instituto Federal  de Alagoas é uma instituição de ensino superior e técnico
+      brasileira.
+    </ion-card-content>
+  </ion-card>
+</ion-content>
