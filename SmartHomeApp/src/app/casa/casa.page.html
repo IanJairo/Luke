@@ -1,16 +1,58 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons [routerLink]="'/'" slot="start">
-      <ion-button slot="icon-only">
-        <ion-icon name="chevron-back-outline"></ion-icon>
-      </ion-button>
+  <ion-toolbar >
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
     </ion-buttons>
 
 
     <ion-title>IFAL</ion-title>
+
+    <ion-buttons slot="end" (click)="reorderGroup(isDisabledReorder)">
+      <ion-button slot="icon-only">
+        <ion-icon name="filter-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
 
+<ion-content>
+  <ion-list>
+    <ion-list-header>Opções</ion-list-header>
+    
+    <ion-reorder-group [disabled]="isDisabledReorder">
+      <!-- Default reorder icon, end aligned items -->
+      <ion-item>
+        <ion-reorder slot="start"></ion-reorder>
+        <ion-label>
+          Luz da Piscina
+        </ion-label>
+        <ion-toggle slot="end" (ionChange)="homeOptions($event, 'pool')"></ion-toggle>
+
+      </ion-item>
+
+      <ion-item>
+        <ion-reorder slot="start"></ion-reorder>
+        <ion-label>
+          Luz da Sala
+        </ion-label>
+        <ion-toggle slot="end" (ionChange)="homeOptions($event, 'livingRoom')"></ion-toggle>
+
+      </ion-item>
+
+
+      <ion-item>
+        <ion-reorder slot="start"></ion-reorder>
+        <ion-label>
+          Alarme
+        </ion-label>
+        <ion-toggle slot="end" (ionChange)="homeOptions($event, 'alarm')"></ion-toggle>
+
+      </ion-item>
+
+
+
+    </ion-reorder-group>
+  </ion-list>
 </ion-content>
