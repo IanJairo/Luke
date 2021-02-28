@@ -1,17 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { SecureStorageService } from '../services/secure-storage.service';
 
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
-export class Tab1Page {
+export class Tab1Page implements OnInit {
   public userName;
 
-  constructor() { }
+  constructor(
+    private storageService: SecureStorageService
 
-  nextPage() {
-    
+  ) { }
+
+
+
+  ngOnInit() {
+    this.userName ='';
+    this.storageService.get('userName')
+      .then((resul) => {
+        this.userName = resul.value;
+      })
+      .catch(err => {
+        console.log(err)
+      })
+
+
   }
 
 }

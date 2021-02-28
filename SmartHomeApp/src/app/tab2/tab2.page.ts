@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { SecureStorageService } from '../services/secure-storage.service';
 
 @Component({
   selector: 'app-tab2',
@@ -7,7 +9,25 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  constructor(
+    public router: Router,
+    private storageService: SecureStorageService
+  ) {}
+
+async logOut() {
+  await this.storageService.clear('userName')
+  .then((resul) => {
+    location.reload();
+
+    this.router.navigate(['/']);
+    
+    
+  })
+  .catch(err => {
+
+  })
+}
+
 
   toggleTheme(event) {
     console.log('evento', event);

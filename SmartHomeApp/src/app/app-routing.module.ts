@@ -2,6 +2,13 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
+  
+  {
+    path: '',
+    loadChildren: () => import('./welcome/welcome.module').then( m => m.WelcomePageModule)
+  },
+  
+  
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
@@ -10,6 +17,7 @@ const routes: Routes = [
     path: 'casa',
     loadChildren: () => import('./casa/casa.module').then( m => m.CasaPageModule)
   }
+
 ];
 @NgModule({
   imports: [
