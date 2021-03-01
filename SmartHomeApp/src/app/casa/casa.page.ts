@@ -6,16 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./casa.page.scss'],
 })
 export class CasaPage implements OnInit {
-  public isDisabledReorder: boolean = true
   constructor() { }
 
-  reorderGroup(isDisabledReorder) {
-    if (isDisabledReorder) {
-      return this.isDisabledReorder = false
-    } else {
-      return this.isDisabledReorder = true
-    }
-  }
+ 
 
   homeOptions(event, type) {
     if (type == "pool") {
@@ -31,9 +24,30 @@ export class CasaPage implements OnInit {
       } else {
 
       }
-    } else {
+
+
+    }  else if (type == "ldr") {
       if (event.detail.checked) {
-        
+
+      } else {
+
+      }
+
+
+    }
+    
+    else if (type == "buzzer") {
+      if (event.detail.checked) {
+
+      } else {
+
+      }
+
+
+    }
+    else {
+      if (event.detail.checked) {
+
       } else {
 
       }
