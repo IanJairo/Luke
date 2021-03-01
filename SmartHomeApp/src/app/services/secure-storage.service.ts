@@ -12,7 +12,7 @@ const { SecureStoragePlugin } = Plugins;
 export class SecureStorageService {
 
   constructor() { }
-  async set(key: string, value: string) {
+  async set(key: string, value) {
     const storage = await SecureStoragePlugin.set({ key, value });
     return storage;
   }

@@ -1,6 +1,15 @@
 ion-slides {
     height: 100%;
   }
+
+  .imagem {
+   text-align: center;
+   img {
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+   }
+  }
   
   .swiper-slide {
     display: block;

@@ -36,6 +36,18 @@ export class WelcomePage implements OnInit {
 
 
   ngOnInit() {
+    this.storageService.get('color-theme')
+      .then((resul) => {
+        if (resul.value === 'dark') {
+          document.body.setAttribute('color-theme', 'dark');
+
+        } else {
+          document.body.setAttribute('color-theme', 'light');
+
+        }
+
+      })
+
   }
 
 }

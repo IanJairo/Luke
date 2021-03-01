@@ -8,35 +8,52 @@ import { SecureStorageService } from '../services/secure-storage.service';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
-
+  public isDarkTheme: boolean;
   constructor(
     public router: Router,
     private storageService: SecureStorageService
-  ) {}
+  ) {
+    this.storageService.get('color-theme')
+      .then((resul) => {
+        if (resul.value === 'dark') {
 
-async logOut() {
-  await this.storageService.clear('userName')
-  .then((resul) => {
-    location.reload();
+          this.isDarkTheme = true
+          document.body.setAttribute('color-theme', 'dark');
 
-    this.router.navigate(['/']);
-    
-    
-  })
-  .catch(err => {
+        } else {
+          this.isDarkTheme = false
+          document.body.setAttribute('color-theme', 'light');
 
-  })
-}
+        }
+
+      })
+
+  }
+
+  async logOut() {
+    await this.storageService.clear('userName')
+      .then((resul) => {
+        location.reload();
+
+        this.router.navigate(['/']);
 
 
-  toggleTheme(event) {
+      })
+      .catch(err => {
+
+      })
+  }
+
+
+  async toggleTheme(event) {
     console.log('evento', event);
 
-    if(event.detail.checked) {
+    if (event) {
       document.body.setAttribute('color-theme', 'dark');
+      await this.storageService.set('color-theme', 'dark')
     } else {
       document.body.setAttribute('color-theme', 'light');
-
+      await this.storageService.set('color-theme', 'light')
     }
   }
 

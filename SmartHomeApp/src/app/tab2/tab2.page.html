@@ -19,7 +19,7 @@
     <ion-list-header>Tema</ion-list-header>
     <ion-item>
       <ion-label>Modo Noturno</ion-label>
-      <ion-toggle slot="end" (ionChange)="toggleTheme($event)"></ion-toggle>
+      <ion-toggle [(ngModel)]="isDarkTheme" slot="end" (ionChange)="toggleTheme(isDarkTheme)"></ion-toggle>
     </ion-item>
   </ion-list>
 

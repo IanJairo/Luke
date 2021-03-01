@@ -4,33 +4,50 @@
     <ion-slide>
       <div class="slide">
         <br>
-        <img src="#" />
-        <h2>Bem-vindo a Luke!</h2>
+        <div class="imagem">
+
+          <img src="./../../assets/img/logo LUKE 1.png" />
+        </div>
+        <h2>Bem-vindo ao Luke!</h2>
         <p>Controle sua casa de forma inteligente desde qualquer lugar.</p>
-        <p><b>Arraste para o lado</b> </p>
+
         <br>
-        <ion-icon slot="end" name="arrow-forward"></ion-icon>
+        <ion-icon slot="end" color="primary" name="arrow-forward"></ion-icon>
       </div>
     </ion-slide>
 
     <ion-slide>
-      <img src="#" />
+      <div class="imagem">
+
+        <img style="padding-top: 20px; padding-bottom: 20px;" src="./../../assets/img/HomeSettings.svg" />
+      </div>
+   
+
       <h2>Simplicidade</h2>
-      <p>Aqui você pode controlar desde a luz da piscina até o alarme de
-        forma rápida e precisa. Tudo isso para</p>
-      <ion-icon slot="end" name="arrow-forward"></ion-icon>
+      <p>Aqui você pode controlar desde a luz da piscina até o alarme de sua casa
+        forma rápida e precisa.</p>
+      <br>
+
+      <ion-icon slot="end" color="primary" name="arrow-forward"></ion-icon>
     </ion-slide>
 
 
 
     <ion-slide>
-      <img src="#" />
-      <h2>Iaí, está pronto?</h2>
-      <p>Insira seu nome e aproveite</p>
 
-      <ion-input [(ngModel)]="name" type="text" placeholder="nome"></ion-input>
+
+      <div class="imagem">
+
+        <img  style="padding-top: 20px; padding-bottom: 20px;" src="./../../assets/img/Finish.svg" />
+      </div>
+      <h2>E aí, está pronto?</h2>
+      <p>Insira seu nome e aproveite</p>
+      <ion-item class="ion-padding-end">
+
+        <ion-input autocapitalize="on"  [(ngModel)]="name" type="text" placeholder="Seu Melhor Nome"></ion-input>
+      </ion-item>
       <ion-button (click)="goStart(name)" fill="clear">Vamos nessa!
-        <ion-icon slot="end" name="arrow-forward"></ion-icon>
+
       </ion-button>
       <p style="font-size: 10px">Com ❤ Luke</p>
     </ion-slide>
