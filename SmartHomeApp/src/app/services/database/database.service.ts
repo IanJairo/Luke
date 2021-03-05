@@ -25,13 +25,13 @@ export class DatabaseService {
       { headers: new HttpHeaders({ "Content-Type": "application/json" }) })
       .subscribe(response => {
         console.log('response: ', response);
-        
+
       })
-    
+
   }
 
 
-  async getData(url: string) {
+  getData(url: string) {
     let headers = new Headers();
     headers.append("Accept", 'application/json');
     headers.append('Content-Type', 'application/json');

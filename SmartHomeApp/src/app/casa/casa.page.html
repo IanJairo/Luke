@@ -7,7 +7,7 @@
 
     <ion-title>IFAL</ion-title>
 
-  
+
   </ion-toolbar>
 </ion-header>
 
@@ -16,84 +16,160 @@
 
 
   <ion-card>
-<ion-card-header>
-  <ion-card-title>
-    Luzes da Casa
-  </ion-card-title>
-</ion-card-header>
 
 
-  <ion-list>
-
-      <!-- Default reorder icon, end aligned items -->
-      <ion-item class="" lines="inset">
-        
+    <ion-list *ngIf="this.contentAux == 0">
+      <ion-list-header>
         <ion-label>
-          Sensor de Luz
+          <ion-skeleton-text animated style="width: 20%"></ion-skeleton-text>
         </ion-label>
-        <ion-toggle slot="end" (ionChange)="homeOptions($event, 'ldr')"></ion-toggle>
+      </ion-list-header>
+      <ion-item>
+        <ion-label>
+          <p>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          </p>
 
+        </ion-label>
       </ion-item>
 
-      <ion-item class="" lines="inset">
-        
+      <ion-item>
         <ion-label>
-          Piscina
-        </ion-label>
-        <ion-toggle slot="end" (ionChange)="homeOptions($event, 'pool')"></ion-toggle>
+          <p>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          </p>
 
+        </ion-label>
       </ion-item>
 
-      <ion-item lines="none">
-        
+      <ion-item>
         <ion-label>
-          Sala
-        </ion-label>
-        <ion-toggle slot="end" (ionChange)="homeOptions($event, 'livingRoom')"></ion-toggle>
+          <p>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          </p>
 
+        </ion-label>
+      </ion-item>
+    </ion-list>
+    <div *ngIf="this.contentAux == 1">
+
+      <ion-card-header>
+        <ion-card-title>
+          Luzes da Casa
+        </ion-card-title>
+      </ion-card-header>
+
+      <ion-list>
+
+        <!-- Default reorder icon, end aligned items -->
+        <ion-item class="" lines="inset">
+
+          <ion-label>
+            Sensor de Luz
+          </ion-label>
+          <ion-toggle slot="end" [(ngModel)]="ldr"></ion-toggle>
+
+        </ion-item>
+
+        <ion-item class="" lines="inset">
+
+          <ion-label>
+            Piscina
+          </ion-label>
+          <ion-toggle slot="end" [(ngModel)]="pool"></ion-toggle>
+
+        </ion-item>
+
+        <ion-item lines="none">
+
+          <ion-label>
+            Sala
+          </ion-label>
+          <ion-toggle slot="end" [(ngModel)]="livingRoom"></ion-toggle>
+
+        </ion-item>
+
+
+
+
+      </ion-list>
+    </div>
+  </ion-card>
+
+  <ion-card>
+
+    <ion-list *ngIf="this.contentAux == 0">
+      <ion-list-header>
+        <ion-label>
+          <ion-skeleton-text animated style="width: 20%"></ion-skeleton-text>
+        </ion-label>
+      </ion-list-header>
+      <ion-item>
+        <ion-label>
+          <p>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          </p>
+
+        </ion-label>
       </ion-item>
 
-
-
-
-  </ion-list>
-</ion-card>
-
-<ion-card>
-  <ion-card-header>
-    <ion-card-title>
-Outros
-    </ion-card-title>
-  </ion-card-header>
-  
-  
-
-  <ion-list>
- 
-
-
-      <ion-item class="" lines="inset">
-        
+      <ion-item>
         <ion-label>
-          Alarme
-        </ion-label>
-        <ion-toggle slot="end" (ionChange)="homeOptions($event, 'alarm')"></ion-toggle>
+          <p>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          </p>
 
+        </ion-label>
       </ion-item>
 
-      <ion-item lines="none">
-        
+      <ion-item>
         <ion-label>
-          Sirene
+          <p>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          </p>
+
         </ion-label>
-        <ion-toggle slot="end" (ionChange)="homeOptions($event, 'buzzer')"></ion-toggle>
-
       </ion-item>
+    </ion-list>
+
+    <div *ngIf="this.contentAux == 1">
+
+
+      <ion-card-header>
+        <ion-card-title>
+          Outros
+        </ion-card-title>
+      </ion-card-header>
 
 
 
-  
-  </ion-list>
-</ion-card>
+      <ion-list>
+
+
+
+        <ion-item class="" lines="inset">
+
+          <ion-label>
+            Alarme
+          </ion-label>
+          <ion-toggle slot="end" [(ngModel)]="alarm"></ion-toggle>
+
+        </ion-item>
+
+        <ion-item lines="none">
+
+          <ion-label>
+            Sirene
+          </ion-label>
+          <ion-toggle slot="end" [(ngModel)]="buzzer"></ion-toggle>
+
+        </ion-item>
+
+
+
+
+      </ion-list>
+    </div>
+  </ion-card>
 
 </ion-content>
