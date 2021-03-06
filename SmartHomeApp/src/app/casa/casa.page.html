@@ -67,16 +67,18 @@
           <ion-label>
             Sensor de Luz
           </ion-label>
-          <ion-toggle slot="end" [(ngModel)]="ldr"></ion-toggle>
+          <ion-toggle slot="end" (ionChange)="homeOptions($event, 'ldr')"
+           [(ngModel)]="ldr"></ion-toggle>
 
         </ion-item>
 
-        <ion-item class="" lines="inset">
+        <ion-item class=""  lines="inset">
 
           <ion-label>
             Piscina
           </ion-label>
-          <ion-toggle slot="end" [(ngModel)]="pool"></ion-toggle>
+          <ion-toggle slot="end" (ionChange)="homeOptions($event, 'pool')"
+           [(ngModel)]="pool"></ion-toggle>
 
         </ion-item>
 
@@ -85,7 +87,8 @@
           <ion-label>
             Sala
           </ion-label>
-          <ion-toggle slot="end" [(ngModel)]="livingRoom"></ion-toggle>
+          <ion-toggle slot="end" (ionChange)="homeOptions($event, 'livingRoom')"
+           [(ngModel)]="livingRoom"></ion-toggle>
 
         </ion-item>
 
@@ -146,24 +149,26 @@
       <ion-list>
 
 
-
-        <ion-item class="" lines="inset">
-
-          <ion-label>
-            Alarme
-          </ion-label>
-          <ion-toggle slot="end" [(ngModel)]="alarm"></ion-toggle>
-
-        </ion-item>
-
-        <ion-item lines="none">
+        <ion-item lines="inset">
 
           <ion-label>
             Sirene
           </ion-label>
-          <ion-toggle slot="end" [(ngModel)]="buzzer"></ion-toggle>
+          <ion-toggle slot="end" (ionChange)="homeOptions($event, 'buzzer')"
+           [(ngModel)]="buzzer"></ion-toggle>
 
         </ion-item>
+        <ion-item class="" lines="none">
+
+          <ion-label>
+            Alarme
+          </ion-label>
+          <ion-toggle slot="end" [disabled]="!buzzer" (ionChange)="homeOptions($event, 'alarm')"
+           [(ngModel)]="alarm"></ion-toggle>
+
+        </ion-item>
+
+    
 
 
 

@@ -12,21 +12,17 @@ export class DatabaseService {
 
   ) { }
 
-  async setData(data, url: string) {
+  updateData(data, url: string) {
     let headers = new Headers();
     headers.append("Accept", 'application/json');
     headers.append('Content-Type', 'application/json');
     let postData = data;
     let urlServer = this.urlServer + url
 
-    const response = await this.httpClient.post(
+    return this.httpClient.post<any[]>(
       urlServer,
       postData,
-      { headers: new HttpHeaders({ "Content-Type": "application/json" }) })
-      .subscribe(response => {
-        console.log('response: ', response);
-
-      })
+      { headers: new HttpHeaders({ "Content-Type": "application/json" }) });  
 
   }
 
